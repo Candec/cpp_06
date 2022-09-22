@@ -9,7 +9,6 @@
 	Scalar::Scalar(const std::string &src)
 	{
 		setType(src);
-		std::cout << getType() << std::endl;
 		setString(src);
 		setNumber(src);
 		printChar();
@@ -69,7 +68,7 @@
 		if (getType() == ESP)
 		{
 			str = _str;
-			if (str.compare("-inff") || str.compare("+inff") || str.compare("nanf"))
+			if (!str.compare("-inff") || !str.compare("+inff") || !str.compare("nanf"))
 				str = _str.substr(0, _str.length() - 1);
 		}
 		else if (getType() == INT || getType() == DOUBLE)
@@ -165,8 +164,8 @@
 
 	bool Scalar::isSpecial(const std::string &src)
 	{
-		return (src.compare("-inf") || src.compare("+inf") || src.compare("nan")
-			|| src.compare("-inff") || src.compare("+inff") || src.compare("nanf"));
+		return (!src.compare("-inf") || !src.compare("+inf") || !src.compare("nan")
+			|| !src.compare("-inff") || !src.compare("+inff") || !src.compare("nanf"));
 	}
 
 	// PRINT
@@ -201,6 +200,7 @@
 			std::cout << getString() << 'f' << std::endl;
 		else
 		{
+			std::cout.precision(1);
 			std::cout << std::fixed << static_cast<float>(getNumber()) << 'f' << std::endl;
 		}
 	}
@@ -212,5 +212,8 @@
 		else if (getType() == ESP)
 			std::cout << getString() << std::endl;
 		else
+		{
+			std::cout.precision(1);
 			std::cout << std::fixed << static_cast<double>(getNumber()) << std::endl;
+		}
 	}
