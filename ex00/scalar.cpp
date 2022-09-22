@@ -1,7 +1,7 @@
 #include "scalar.hpp"
 
 	// CONSTRUCTORS
-	Scalar::Scalar()
+	Scalar::Scalar() : type(NON)
 	{
 		//std::cout << "[Scalar] default constructor" << std::endl;
 	}
@@ -49,12 +49,10 @@
 
 	void Scalar::setType(const std::string &str)
 	{
-		type = NON;
-
-		if (isChar(str))
-			type = CHAR;
-		else if (isInt(str))
+		if (isInt(str))
 			type = INT;
+		else if (isChar(str))
+			type = CHAR;
 		else if (isFloat(str))
 			type = FLOAT;
 		else if (isDouble(str))
