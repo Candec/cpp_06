@@ -14,13 +14,13 @@ class Scalar
 	public:
 
 	// CONSTRUCTORS
-	Scalar(char *src);
+	Scalar(const std::string &src);
 	Scalar(const Scalar &src);
 	Scalar& operator=(const Scalar &src);
 	~Scalar();
 
 	// SETTER & GETTER
-	void setString(const char* str);
+	void setString(const std::string &str);
 	void setType(const std::string &str);
 	void setNumber(const std::string &str);
 	int getType() const;
@@ -39,7 +39,6 @@ class Scalar
 	void printInt() const;
 	void printFloat() const;
 	void printDouble() const;
-	void printSpecial() const;
 
 	private:
 

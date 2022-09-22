@@ -4,8 +4,8 @@ int main(int argc, char* argv[])
 {
 	if (argc == 2)
 	{
-		Scalar::Scalar(argv[1]);
-		
+		std::string str(argv[1]);
+		Scalar convert(str);
 	}
 	else
 	{
