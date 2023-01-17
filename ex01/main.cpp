@@ -40,8 +40,10 @@ int main()
 	
 	raw = serialize(&person);
 
+
 	person.age += 5;
 	person.job = false;
+
 
 	IveSeenThings = deserialize(raw);
 
@@ -49,6 +51,8 @@ int main()
 	std::cout << "Name:		" << IveSeenThings->name << std::endl
 			<< "Age:		" << IveSeenThings->age << std::endl
 			<< "Job:		" << IveSeenThings->job << std::endl;
+
+	std::cout << &person << std::endl << IveSeenThings << std::endl;
 	
 	return (0);
 }
